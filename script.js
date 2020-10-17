@@ -19,3 +19,14 @@ unction generateOptions()
     alert("Invalid entry!!! make sure its less that 128 character");
     return;
   }
+  let includesymbols= confirm("Do you wants to have symbols in your password?");
+  let includeupperCase= confirm("Do you wants to have uppercase in your password?");
+  let includelowerCase= confirm("Do you wants to have lowercase in your password?");
+  let includenumbers= confirm("Do you wants to have numbers in your password?");
+  if (!includesymbols && !includenumbers && !includelowerCase && !includeupperCase)
+  {
+    alert("please try again with atlease one uppercase,one number,one symbols and onelowercase");
+    return;
+  
+  
+  }
