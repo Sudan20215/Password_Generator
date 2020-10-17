@@ -1,7 +1,6 @@
 // Assignment Code
 
 let generatepasswordBtn = document.querySelector("#generate");
-let copytoclipBoard = document.querySelector("#copytoclipboard");
 let onlyupperCase= ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 let onlylowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 let onlynumbers=["0","1","2","3","4","5","6","7","8","9","0"]
@@ -46,7 +45,9 @@ return allvalue;
 // Write password to the #password input
 function writepassword(){
  let options=generateOptions();
-  console.log(options)
+ if (!options) {
+    return;
+ }
   let passwordPool=[];
   console.log(passwordPool)
   if (options.lowerCase){
@@ -79,13 +80,12 @@ function writepassword(){
  console.log(finalpassword);
  document.getElementById("password").value = finalpassword;
   } 
- let password="";
- function copytoClipboard(){
-   document.getElementById("textarea").select();
-   document.execCommand("copy");
-   alert("got it!! your password copied successfully");
- }
+  function copyPassword() {
+    document.getElementById("writepassword").select();
+    document.execCommand("Copy");
+    alert("Password copied to clipboard!");
+}
 
 // Add event listener to generate button
 generatepasswordBtn.addEventListener("click", writepassword);
-copytoclipBoard.addEventListener("click", copytoclipBoard);
+
